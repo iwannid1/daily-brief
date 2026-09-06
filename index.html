@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Morning Site Briefing — 29 Aug</title>
-<meta name="description" content="Daily site safety briefing: lifting operation, parking restrictions, housekeeping, barricading and emergency routes.">
+<title>Weekly Safety Briefing — Week 37</title>
+<meta name="description" content="Weekly site safety briefing: safe access over steel cages, eye protection at the pour, concrete slag management and electrical cable routing.">
 
 <meta property="og:type" content="video.other">
-<meta property="og:title" content="Morning Site Briefing — 29 Aug">
-<meta property="og:description" content="Daily site safety briefing: lifting operation, parking restrictions, housekeeping, barricading and emergency routes.">
+<meta property="og:title" content="Weekly Safety Briefing — Week 37">
+<meta property="og:description" content="Weekly site safety briefing: safe access over steel cages, eye protection at the pour, concrete slag management and electrical cable routing.">
 <meta property="og:image" content="poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -76,7 +76,21 @@
     padding-bottom:10px;margin-bottom:4px;border-bottom:1px solid var(--line);
   }
 
-  ol{list-style:none}
+  .priorities{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;
+    margin:14px 0 34px;list-style:none;
+  }
+  .priorities li{
+    background:var(--card);border:1px solid var(--line);border-radius:8px;
+    padding:14px 16px;
+  }
+  .priorities b{
+    display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+    color:var(--accent);font-weight:600;margin-bottom:6px;
+  }
+  .priorities span{font-size:15px}
+
+  ol.cues{list-style:none}
   .cue{
     display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;
     width:100%;text-align:left;background:none;border:0;color:inherit;
@@ -118,45 +132,52 @@
   <header>
     <div class="mark" aria-hidden="true"></div>
     <div class="brand">SAFEEYE</div>
-    <div class="sub">Site Daily Briefing &middot; 29 Aug</div>
-    <div class="live"><span class="dot" aria-hidden="true"></span>06:00</div>
+    <div class="sub">Site Weekly Briefing &middot; 06 Sep</div>
+    <div class="live"><span class="dot" aria-hidden="true"></span>Week 37</div>
   </header>
 
-  <h1>Morning Briefing</h1>
-  <p class="tagline">Today&rsquo;s five priorities, delivered by the site supervisor. Watch the full briefing below, or jump to any item in the transcript.</p>
+  <h1>Weekly Safety Briefing</h1>
+  <p class="tagline">This week&rsquo;s four safety priorities, delivered by the site supervisor. Watch the full briefing below, or jump to any item in the transcript.</p>
 
   <div class="player">
     <video id="v" controls preload="metadata" playsinline poster="poster.jpg">
-      <source src="Morning_Site_Briefing_updated.mp4" type="video/mp4">
+      <source src="Weekly_Safety_Briefing_updated.mp4" type="video/mp4">
       Your browser doesn&rsquo;t support embedded video.
-      <a href="Morning_Site_Briefing_updated.mp4">Download the briefing</a> instead.
+      <a href="Weekly_Safety_Briefing_updated.mp4">Download the briefing</a> instead.
     </video>
   </div>
 
   <div class="meta">
-    <span class="chip">Runtime 0:55</span>
-    <span class="chip">5 Priorities</span>
+    <span class="chip">Runtime 1:04</span>
+    <span class="chip">4 Priorities</span>
     <span class="chip">Toolbox Talk</span>
-    <span class="chip">29 August</span>
+    <span class="chip">Week 37</span>
   </div>
+
+  <h2>This week&rsquo;s priorities</h2>
+  <ol class="priorities">
+    <li><b>01 &middot; Safe access</b><span>Board over the steel cage mesh &mdash; no tripping hazards.</span></li>
+    <li><b>02 &middot; Eye protection</b><span>PPE for the hose operator at the concrete pour.</span></li>
+    <li><b>03 &middot; Concrete slag</b><span>Finalise how the slag is managed.</span></li>
+    <li><b>04 &middot; Electrical cables</b><span>No cables on the ground &mdash; hang them.</span></li>
+  </ol>
 
   <h2>Transcript</h2>
   <p class="hint">Select any line to jump to that moment.</p>
-  <ol id="tr">
-    <li><button class="cue" data-t="1.2"><time>00:01</time><span>Good morning. We have many priorities today.</span></button></li>
-    <li><button class="cue" data-t="6.0"><time>00:06</time><span>First of all, we are expecting the lifting of IREM to start.</span></button></li>
-    <li><button class="cue" data-t="9.5"><time>00:09</time><span>There is a specific traffic plan they are following.</span></button></li>
-    <li><button class="cue" data-t="15.9"><time>00:15</time><span>And also we have restrictions regarding parking areas because of the lifting.</span></button></li>
-    <li><button class="cue" data-t="22.6"><time>00:22</time><span>And of course, we will continue to do housekeeping.</span></button></li>
-    <li><button class="cue" data-t="27.4"><time>00:27</time><span>Please check the barricading regarding gaps, to see that it is working and it is strong.</span></button></li>
-    <li><button class="cue" data-t="34.9"><time>00:34</time><span>And don&rsquo;t close the routes. If you are about to use this area as a lay-down area, check that the routes are open.</span></button></li>
-    <li><button class="cue" data-t="46.5"><time>00:46</time><span>Because of emergency, we need the routes to be open.</span></button></li>
-    <li><button class="cue" data-t="51.0"><time>00:51</time><span>Thank you, have a nice and safe day.</span></button></li>
+  <ol class="cues" id="tr">
+    <li><button class="cue" data-t="0.3"><time>00:00</time><span>Hi &mdash; the safety priorities of this week are the following.</span></button></li>
+    <li><button class="cue" data-t="4.75"><time>00:04</time><span>First of all, we have to do about the safe access.</span></button></li>
+    <li><button class="cue" data-t="8.1"><time>00:08</time><span>This means that boards shall be installed on top of the steel cages with mesh, in a way that ensures there are no tripping hazards for the people who are moving on there.</span></button></li>
+    <li><button class="cue" data-t="24.0"><time>00:24</time><span>The second &mdash; because of the upcoming concrete pouring&hellip;</span></button></li>
+    <li><button class="cue" data-t="26.0"><time>00:26</time><span>&hellip;the man who is holding the hose needs to have personal protective equipment regarding eye protection.</span></button></li>
+    <li><button class="cue" data-t="41.9"><time>00:41</time><span>And they have to finalise the concrete slag &mdash; how to manage it.</span></button></li>
+    <li><button class="cue" data-t="51.8"><time>00:51</time><span>And finally, about the electrical cables: no cables are allowed to be on the ground &mdash; the electrical cables should be hanged.</span></button></li>
+    <li><button class="cue" data-t="61.2"><time>01:01</time><span>That is for now &mdash; have a nice and safe day.</span></button></li>
   </ol>
 
   <footer>
-    <span>SafeEye &middot; Site Daily Briefing</span>
-    <span>29 August</span>
+    <span>SafeEye &middot; Site Weekly Briefing</span>
+    <span>Week 37 &middot; 06 September</span>
   </footer>
 
 </div>
