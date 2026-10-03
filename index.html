@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Weekly Safety Briefing — Week of 21.09.2026</title>
-<meta name="description" content="Weekly site safety briefing: lifting operations, housekeeping and segregation, concrete pouring eye protection, and electrical cable management. English and Greek.">
+<title>Weekly Safety Briefing — Week of 05.10.2026</title>
+<meta name="description" content="Weekly site safety briefing: metal cage entry, Wednesday concrete pour traffic plan and access, and flagman availability. English and Greek.">
 
 <meta property="og:type" content="video.other">
-<meta property="og:title" content="Weekly Safety Briefing — Week of 21.09.2026">
-<meta property="og:description" content="Four priorities for the site this week: lifting operations, housekeeping, concrete pouring, electrical cables.">
-<meta property="og:image" content="poster_W39.jpg">
+<meta property="og:title" content="Weekly Safety Briefing — Week of 05.10.2026">
+<meta property="og:description" content="Three priorities for the site this week: metal cage entry, Wednesday concrete pour, flagman on duty.">
+<meta property="og:image" content="poster_W41.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230D1014'/><rect x='7' y='10' width='18' height='4' rx='1' fill='%23F2B417'/><rect x='7' y='18' width='12' height='4' rx='1' fill='%23F2B417'/></svg>">
@@ -72,9 +72,7 @@
     transition:background .15s,color .15s,border-color .15s;
   }
   .lang button:hover{color:var(--text);border-color:#39424c}
-  .lang button[aria-pressed="true"]{
-    background:var(--accent);border-color:var(--accent);color:#14100A;
-  }
+  .lang button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#14100A}
   .lang button:focus-visible{outline:2px solid var(--accent-hi);outline-offset:2px}
 
   h1.page-title{
@@ -83,14 +81,14 @@
   }
   .page-tag{color:var(--muted);font-size:15px;margin-bottom:20px;max-width:64ch}
 
-  /* ---------- stage ---------- */
+  /* ---------- stage (fixed 1920x1080, scaled to fit) ---------- */
   .stage-outer{
     position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;
     background:#000;border:1px solid var(--line);border-radius:10px;
     box-shadow:0 20px 56px rgba(0,0,0,.55);
   }
   .stage{
-    position:absolute;top:0;left:0;width:1920px;height:1080px;
+    position:absolute;top:0;left:0;width:1920px;height:1080px;overflow:hidden;
     transform-origin:top left;
     background:
       radial-gradient(1200px 700px at 72% 18%, #151A21 0%, rgba(21,26,33,0) 62%),
@@ -98,63 +96,62 @@
     font-size:16px;
   }
 
-  /* speaker window (the predefined window) */
+  /* ---------- speaker window (reserved — nothing overlaps it) ---------- */
   .spk{
     position:absolute;left:66px;top:50px;width:364px;height:204px;
     border:1px solid #2A3038;border-radius:4px;overflow:hidden;background:#07090B;
   }
-  .spk video{width:100%;height:100%;object-fit:cover;display:block;background:#07090B}
-  .spk::after{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    box-shadow:inset 0 0 40px rgba(0,0,0,.45);
+  .spk video{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 59%;
+    display:block;background:#07090B;
   }
+  .spk video:not([src]){display:none}
+  .spk::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 40px rgba(0,0,0,.45)}
+  .spk-ph{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+    border:0;background:repeating-linear-gradient(135deg,#0A0C0F 0 14px,#0C0F13 14px 28px);
+    color:var(--dim);cursor:pointer;font:inherit;width:100%;
+  }
+  .spk-ph svg{width:34px;height:34px;fill:none;stroke:#3A424C;stroke-width:1.6}
+  .spk-ph .l1{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#6B747E}
+  .spk-ph .l2{font-size:12px;color:#4C545D}
+  .spk-ph:hover .l1{color:var(--accent)}
+  .spk-ph:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+  .spk.drag .spk-ph{outline:2px dashed var(--accent);outline-offset:-8px}
+  .spk.has-video .spk-ph{display:none}
 
-  /* header block */
+  /* ---------- header ---------- */
   .stripes{position:absolute;left:478px;top:46px;display:flex;gap:5px}
   .stripes i{display:block;width:14px;height:15px;background:var(--accent);transform:skewX(-22deg)}
-  .st-title{
-    position:absolute;left:478px;top:70px;font-size:58px;font-weight:800;
-    letter-spacing:-.022em;line-height:1;color:var(--white);
-  }
-  .st-week{
-    position:absolute;left:478px;top:150px;font-size:20px;font-weight:700;
-    color:var(--accent);letter-spacing:.01em;
-  }
+  .st-title{position:absolute;left:478px;top:70px;font-size:58px;font-weight:800;letter-spacing:-.022em;line-height:1;color:var(--white);white-space:nowrap}
+  .st-week{position:absolute;left:478px;top:150px;font-size:20px;font-weight:700;color:var(--accent);letter-spacing:.01em}
   .st-sub{position:absolute;left:478px;top:192px;font-size:15px;color:var(--muted)}
 
   .clock{position:absolute;right:52px;top:52px;text-align:right}
   .clock-time{font-family:var(--mono);font-size:31px;font-weight:700;letter-spacing:.02em;line-height:1}
   .clock-time .sep,.clock-time .tot{color:var(--dim)}
-  .clock-lab{
-    font-family:var(--mono);font-size:11px;color:var(--muted);
-    letter-spacing:.04em;margin-top:8px;
-  }
-  .clock-track{
-    position:absolute;right:52px;top:146px;width:260px;height:3px;
-    background:#252B33;border-radius:2px;overflow:hidden;
-  }
-  .clock-fill{height:100%;width:0;background:var(--accent);transition:width .12s linear}
+  .clock-lab{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:8px}
+  .clock-track{position:absolute;right:52px;top:146px;width:260px;height:3px;background:#252B33;border-radius:2px;overflow:hidden}
+  .clock-fill{height:100%;width:0;background:var(--accent)}
 
   .rule-top{position:absolute;left:66px;top:262px;width:1802px;height:1px;background:var(--line-soft)}
 
-  /* left rail */
+  /* ---------- left rail ---------- */
   .rail{position:absolute;left:66px;top:306px;width:424px}
   .card{
     position:relative;background:var(--panel);border-radius:4px;
-    padding:15px 20px 16px 22px;margin-bottom:38px;height:128px;
-    border-left:3px solid #2F3640;
-    transition:background .35s,border-color .35s;
+    padding:17px 20px 16px 22px;margin-bottom:40px;height:150px;
+    border-left:3px solid #2F3640;transition:background .35s,border-color .35s;
   }
   .card:last-child{margin-bottom:0}
-  .card .num{
-    font-family:var(--mono);font-size:15px;font-weight:700;color:var(--dim);
-    transition:color .35s;
-  }
-  .card .ttl{font-size:20px;font-weight:700;color:#C9CFD6;margin-top:2px;transition:color .35s}
-  .card .sub{font-size:14px;color:var(--dim);margin-top:5px;line-height:1.35;transition:color .35s}
+  .card .num{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--dim);transition:color .35s}
+  .card .ttl{font-size:21px;font-weight:700;color:#C9CFD6;margin-top:2px;line-height:1.25;transition:color .35s}
+  .card .sub{font-size:14px;color:var(--dim);margin-top:6px;line-height:1.38;transition:color .35s}
+  .card .bar{position:absolute;left:22px;right:20px;bottom:12px;height:2px;background:#232931;border-radius:1px;overflow:hidden}
+  .card .bar i{display:block;height:100%;width:0;background:var(--accent)}
   .card.is-done{border-left-color:var(--teal)}
   .card.is-done .num{color:var(--teal)}
-  .card.is-done .ttl{color:#C9CFD6}
+  .card.is-done .bar i{background:var(--teal)}
   .card.is-active{
     border-left-color:var(--accent);
     background:linear-gradient(90deg,rgba(242,180,23,.10) 0%,rgba(242,180,23,.03) 60%,var(--panel) 100%);
@@ -163,18 +160,12 @@
   .card.is-active .ttl{color:var(--white)}
   .card.is-active .sub{color:var(--muted)}
 
-  /* canvas */
+  /* ---------- canvas & scenes ---------- */
   .canvas{position:absolute;left:606px;top:300px;width:1184px;height:640px}
-  .scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .4s ease}
-  .scene.active{opacity:1;visibility:visible}
-  .scene svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .scene{position:absolute;inset:0;opacity:0;visibility:hidden}
+  .scene svg.art{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .r{opacity:0}
 
-  /* reveal */
-  .r{opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease}
-  .r.on{opacity:1;transform:none}
-  svg .r{transition:opacity .45s ease}
-
-  /* chips */
   .chip{
     position:absolute;display:inline-flex;align-items:center;gap:9px;
     background:var(--panel-2);border:1px solid var(--line);border-radius:4px;
@@ -182,38 +173,52 @@
   }
   .chip::before{content:"";width:9px;height:9px;background:var(--accent);flex:none}
   .chip.teal::before{background:var(--teal)}
+  .chip.blue::before{background:var(--blue)}
   .chip.is-red{background:#3A1A19;border-color:#6E2B29;color:#F3D6D5}
   .chip.is-red::before{background:var(--red)}
+  .chip.is-teal{background:#12302A;border-color:#22604F;color:#D2F5E8}
+  .chip.is-teal::before{background:var(--teal)}
   .chip.boxed{border-color:var(--accent)}
+  .chip.big{font-size:22px;padding:11px 18px}
 
-  .scene-title{
-    position:absolute;font-size:31px;font-weight:700;color:var(--white);
-    letter-spacing:-.01em;white-space:nowrap;
-  }
+  .scene-title{position:absolute;font-size:31px;font-weight:700;color:var(--white);letter-spacing:-.01em;white-space:nowrap}
+  svg text{font-family:var(--mono)}
+  .lbl{font-size:15px;letter-spacing:.14em;fill:#6B747E;font-weight:700}
 
-  /* intro scene */
-  .intro{position:absolute;left:24px;top:170px;display:flex;gap:30px;align-items:stretch}
+  /* intro */
+  .hello{position:absolute;left:24px;top:96px;font-family:var(--mono);font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .intro{position:absolute;left:24px;top:150px;display:flex;gap:30px;align-items:stretch}
   .intro-bar{width:6px;background:var(--accent);border-radius:2px;flex:none}
-  .intro-title{font-size:56px;font-weight:800;line-height:1.06;letter-spacing:-.025em;color:var(--white);max-width:820px}
-  .intro-sub{font-size:20px;color:var(--muted);margin-top:10px;max-width:820px}
-  .intro-rule{position:absolute;left:0;top:520px;width:1120px;height:1px;background:var(--line-soft)}
+  .intro-title{font-size:56px;font-weight:800;line-height:1.06;letter-spacing:-.025em;color:var(--white);max-width:900px}
+  .intro-sub{font-size:20px;color:var(--muted);margin-top:12px;max-width:860px}
+  .agenda{position:absolute;left:24px;top:430px;display:flex;gap:14px}
+  .ag{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:12px 18px;transition:border-color .3s,background .3s}
+  .ag b{font-family:var(--mono);font-size:15px;color:var(--dim)}
+  .ag span{font-size:18px;font-weight:600;color:#C9CFD6;white-space:nowrap}
+  .ag.hl{border-color:var(--accent);background:rgba(242,180,23,.08)}
+  .ag.hl b{color:var(--accent)} .ag.hl span{color:var(--white)}
 
-  /* outro scene */
+  /* week strip */
+  .week{position:absolute;left:52%;top:30%;display:flex;gap:10px}
+  .day{width:74px;height:104px;border-radius:4px;background:var(--panel);border:1px solid var(--line);
+       display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;position:relative}
+  .day .dn{font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--dim);font-weight:700}
+  .day .dd{font-size:30px;font-weight:800;color:#C9CFD6}
+  .day.hl{background:var(--accent);border-color:var(--accent)}
+  .day.hl .dn,.day.hl .dd{color:#14100A}
+  .day .ring{position:absolute;inset:-4px;border:2px solid var(--accent);border-radius:7px;opacity:0;pointer-events:none}
+
+  /* outro */
   .outro{position:absolute;left:24px;top:110px;width:1110px}
-  .orow{
-    display:flex;align-items:center;gap:22px;
-    padding:11px 0;border-bottom:1px solid var(--line-soft);
-  }
-  .orow svg{position:static;width:38px;height:38px;flex:none}
-  .orow span{font-size:26px;font-weight:700;color:var(--white)}
-  .oclose{margin-top:26px;font-size:32px;font-weight:700;color:var(--accent)}
+  .orow{display:flex;align-items:center;gap:22px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+  .orow svg{width:38px;height:38px;flex:none}
+  .orow span{font-size:28px;font-weight:700;color:var(--white)}
+  .oclose{margin-top:30px;font-size:34px;font-weight:700;color:var(--accent)}
+  .othanks{margin-top:8px;font-size:22px;font-weight:600;color:var(--muted)}
 
   /* caption */
   .rule-cap{position:absolute;left:66px;top:962px;width:1802px;height:1px;background:var(--line-soft)}
-  .caption{
-    position:absolute;left:66px;top:980px;width:1802px;
-    font-size:22px;font-weight:600;line-height:1.42;color:var(--dim);
-  }
+  .caption{position:absolute;left:66px;top:980px;width:1802px;font-size:22px;font-weight:600;line-height:1.42;color:var(--dim)}
   .caption .said{color:var(--white)}
   .caption .now{color:var(--accent)}
 
@@ -225,71 +230,34 @@
     color:var(--text);transition:opacity .3s,visibility .3s;
   }
   .bigplay[hidden]{display:flex;opacity:0;visibility:hidden;pointer-events:none}
-  .bigplay .ring{
-    width:84px;height:84px;border-radius:50%;background:var(--accent);
-    display:grid;place-items:center;box-shadow:0 10px 34px rgba(242,180,23,.32);
-  }
+  .bigplay .ring{width:84px;height:84px;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:0 10px 34px rgba(242,180,23,.32)}
   .bigplay .ring svg{width:32px;height:32px;fill:#14100A;margin-left:4px}
-  .bigplay .lab{
-    font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#C9CFD6;
-  }
+  .bigplay .lab{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#C9CFD6}
 
   /* controls */
-  .controls{
-    display:flex;align-items:center;gap:14px;margin-top:12px;
-    background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 14px;
-  }
-  .ctl{
-    background:none;border:0;color:var(--text);cursor:pointer;padding:6px;
-    display:grid;place-items:center;border-radius:5px;flex:none;
-  }
+  .controls{display:flex;align-items:center;gap:14px;margin-top:12px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+  .ctl{background:none;border:0;color:var(--text);cursor:pointer;padding:6px;display:grid;place-items:center;border-radius:5px;flex:none}
   .ctl:hover{background:var(--panel-2)}
   .ctl:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
   .ctl svg{width:20px;height:20px;fill:currentColor}
   .ctl svg[hidden]{display:none}
-  .seek{
-    flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:3px;
-    background:#2B323A;cursor:pointer;
-  }
-  .seek::-webkit-slider-thumb{
-    -webkit-appearance:none;width:13px;height:13px;border-radius:50%;
-    background:var(--accent);border:0;cursor:pointer;
-  }
+  .seek{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:3px;background:#2B323A;cursor:pointer}
+  .seek::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--accent);border:0;cursor:pointer}
   .seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--accent);border:0;cursor:pointer}
   .seek:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   .tcode{font-family:var(--mono);font-size:12px;color:var(--muted);flex:none;letter-spacing:.03em}
 
-  /* sections below */
-  .meta{
-    display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 34px;
-    font-family:var(--mono);font-size:11px;letter-spacing:.1em;
-    color:var(--muted);text-transform:uppercase;
-  }
+  .meta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 34px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
   .meta span{border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:var(--panel)}
 
-  h2{
-    font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--muted);font-weight:700;
-    padding-bottom:10px;margin-bottom:4px;border-bottom:1px solid var(--line);
-  }
-  .priorities{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;
-    margin:14px 0 34px;list-style:none;
-  }
+  h2{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;padding-bottom:10px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+  .priorities{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0 34px;list-style:none}
   .priorities li{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px}
-  .priorities b{
-    display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
-    color:var(--accent);font-weight:700;margin-bottom:6px;
-  }
+  .priorities b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--accent);font-weight:700;margin-bottom:6px}
   .priorities em{font-style:normal;font-size:15px;color:var(--text)}
 
   ol.cues{list-style:none;margin-top:8px}
-  .cue{
-    display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;
-    width:100%;text-align:left;background:none;border:0;color:inherit;font:inherit;
-    padding:13px 10px;border-bottom:1px solid var(--line);cursor:pointer;border-radius:6px;
-    transition:background .15s;
-  }
+  .cue{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;width:100%;text-align:left;background:none;border:0;color:inherit;font:inherit;padding:13px 10px;border-bottom:1px solid var(--line);cursor:pointer;border-radius:6px;transition:background .15s}
   .cue:hover{background:var(--panel)}
   .cue:focus-visible{outline:none;background:var(--panel);box-shadow:inset 2px 0 0 var(--accent)}
   .cue time{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:3px}
@@ -299,26 +267,27 @@
   .cue[aria-current="true"] span{color:var(--white)}
   .hint{font-size:13px;color:var(--muted);margin:14px 0 2px}
 
-  footer{
-    margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
-    font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);
-    text-transform:uppercase;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
-  }
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   @media (max-width:620px){
     .cue{grid-template-columns:52px 1fr;gap:12px}
     .brand-sub{padding-left:0;border-left:0;flex-basis:100%}
-    .lang{margin-left:auto}
   }
-  @media (prefers-reduced-motion:reduce){
-    *{transition:none!important;animation:none!important}
-  }
+
+  /* render mode (used to export the MP4): stage only, no chrome */
+  html.render body{padding:0;background:#000}
+  html.render .wrap{max-width:none}
+  html.render .wrap > :not(.stage-outer){display:none!important}
+  html.render .stage-outer{width:1920px;height:1080px;border:0;border-radius:0;box-shadow:none}
+  html.render .bigplay{display:none}
+  html.render .spk-ph > *{display:none}
+  html.render *{transition:none!important}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- ===== top bar : EN / GR buttons at top right ===== -->
+  <!-- ===== top bar : EN / ΕΛ language buttons ===== -->
   <div class="topbar">
     <div class="mark" aria-hidden="true"></div>
     <div class="brand">SAFEEYE</div>
@@ -337,11 +306,16 @@
   <div class="stage-outer" id="stageOuter">
     <div class="stage" id="stage">
 
-      <!-- predefined speaker window -->
-      <div class="spk">
-        <video id="v" playsinline preload="metadata" poster="speaker_poster_W39.jpg">
-          <source src="speaker_W39.mp4" type="video/mp4">
-        </video>
+      <!-- reserved speaker window: 364 x 204 at (66, 50). Add your clip later:
+           set SPEAKER_SRC in the script, or drop / pick an MP4 on the window. -->
+      <div class="spk" id="spk">
+        <video id="v" playsinline preload="metadata"></video>
+        <button class="spk-ph" id="spkPh" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10.5 21.5 7v10l-6-3.5z"/></svg>
+          <span class="l1" data-i18n="spkL1"></span>
+          <span class="l2" data-i18n="spkL2"></span>
+        </button>
+        <input type="file" id="spkFile" accept="video/*" hidden>
       </div>
 
       <!-- header -->
@@ -351,9 +325,7 @@
       <div class="st-sub" data-i18n="stSub"></div>
 
       <div class="clock">
-        <div class="clock-time">
-          <span id="ctCur">00:00</span><span class="sep"> / </span><span class="tot" id="ctTot">00:58</span>
-        </div>
+        <div class="clock-time"><span id="ctCur">00:00</span><span class="sep"> / </span><span class="tot" id="ctTot">01:04</span></div>
         <div class="clock-lab" data-i18n="clockLab"></div>
       </div>
       <div class="clock-track"><div class="clock-fill" id="clockFill"></div></div>
@@ -361,205 +333,211 @@
 
       <!-- left rail -->
       <div class="rail" id="rail">
-        <div class="card" data-card="0">
-          <div class="num">01</div>
-          <div class="ttl" data-i18n="p1t"></div>
-          <div class="sub" data-i18n="p1s"></div>
-        </div>
-        <div class="card" data-card="1">
-          <div class="num">02</div>
-          <div class="ttl" data-i18n="p2t"></div>
-          <div class="sub" data-i18n="p2s"></div>
-        </div>
-        <div class="card" data-card="2">
-          <div class="num">03</div>
-          <div class="ttl" data-i18n="p3t"></div>
-          <div class="sub" data-i18n="p3s"></div>
-        </div>
-        <div class="card" data-card="3">
-          <div class="num">04</div>
-          <div class="ttl" data-i18n="p4t"></div>
-          <div class="sub" data-i18n="p4s"></div>
-        </div>
+        <div class="card"><div class="num">01</div><div class="ttl" data-i18n="p1t"></div><div class="sub" data-i18n="p1s"></div><div class="bar"><i></i></div></div>
+        <div class="card"><div class="num">02</div><div class="ttl" data-i18n="p2t"></div><div class="sub" data-i18n="p2s"></div><div class="bar"><i></i></div></div>
+        <div class="card"><div class="num">03</div><div class="ttl" data-i18n="p3t"></div><div class="sub" data-i18n="p3s"></div><div class="bar"><i></i></div></div>
       </div>
 
       <!-- canvas -->
       <div class="canvas">
 
-        <!-- scene 0 : intro -->
+        <!-- ===== scene 0 : intro (0.0 – 9.6) ===== -->
         <section class="scene" id="s0">
+          <div class="hello r" data-in="0.1" data-i18n="hello"></div>
           <div class="intro">
-            <div class="intro-bar r" data-in="0.2"></div>
+            <div class="intro-bar r" data-in="1.2"></div>
             <div>
-              <div class="intro-title r" data-in="0.3" data-i18n="introTitle"></div>
-              <div class="intro-sub r" data-in="1.1" data-i18n="introSub"></div>
+              <div class="intro-title r" data-in="1.3" data-i18n="introTitle"></div>
+              <div class="intro-sub r" data-in="3.0" data-i18n="introSub"></div>
             </div>
           </div>
-          <div class="intro-rule r" data-in="1.8"></div>
+          <div class="agenda">
+            <div class="ag r" data-in="6.2" id="ag0"><b>01</b><span data-i18n="p1t"></span></div>
+            <div class="ag r" data-in="6.5"><b>02</b><span data-i18n="p2t"></span></div>
+            <div class="ag r" data-in="6.8"><b>03</b><span data-i18n="p3t"></span></div>
+          </div>
         </section>
 
-        <!-- scene 1 : lifting operations -->
+        <!-- ===== scene 1 : metal cage entry (9.6 – 31.4) ===== -->
         <section class="scene" id="s1">
-          <svg viewBox="0 0 1184 640" aria-hidden="true">
-            <g class="r" data-in="5.4">
-              <rect x="70" y="58" width="940" height="9" fill="#7E8E9C"/>
-              <rect x="70" y="79" width="940" height="9" fill="#7E8E9C"/>
-              <path d="M70 79 L118 58 L166 79 L214 58 L262 79 L310 58 L358 79 L406 58 L454 79 L502 58 L550 79 L598 58 L646 79 L694 58 L742 79 L790 58 L838 79 L886 58 L934 79 L982 58 L1010 70"
-                    fill="none" stroke="#4E5B67" stroke-width="5"/>
+          <div class="scene-title r" data-in="9.7" style="left:2%;top:0" data-i18n="c1_title"></div>
+          <svg class="art" viewBox="0 0 1184 640" aria-hidden="true">
+            <line x1="0" y1="562" x2="1140" y2="562" stroke="#2A313A" stroke-width="2"/>
+
+            <!-- worker inside the cage (drawn first so the bars sit in front) -->
+            <g class="r" data-in="12.0">
+              <circle cx="522" cy="420" r="20" fill="#F2B417"/>
+              <path d="M524 440 L534 494 L566 552 M534 494 L512 556 M528 458 L576 474" stroke="#F2B417" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             </g>
-            <g class="r" data-in="5.9">
-              <rect x="570" y="88" width="34" height="22" rx="2" fill="#6E7D8A"/>
-              <line x1="587" y1="110" x2="587" y2="196" stroke="#9AA9B6" stroke-width="3"/>
-              <path d="M587 196 L466 232 M587 196 L708 232" stroke="#9AA9B6" stroke-width="3" fill="none"/>
-              <rect x="466" y="232" width="242" height="30" rx="3" fill="#A8B7C4"/>
-              <rect x="458" y="224" width="20" height="46" rx="3" fill="#E2E8ED"/>
-              <rect x="696" y="224" width="20" height="46" rx="3" fill="#E2E8ED"/>
+            <!-- knee protection -->
+            <g class="r" data-in="20.2">
+              <rect x="553" y="536" width="26" height="18" rx="5" fill="#3ED6A0"/>
+              <circle cx="566" cy="545" r="38" fill="none" stroke="#F2B417" stroke-width="3" stroke-dasharray="7 6"/>
             </g>
-            <!-- rigger -->
-            <g class="r" data-in="6.3">
-              <circle cx="258" cy="374" r="25" fill="#F2B417"/>
-              <path d="M258 394 v62 M258 456 l-20 44 M258 456 l20 44 M258 410 l-38 -8 M258 410 l40 -26" stroke="#F2B417" stroke-width="15" stroke-linecap="round" fill="none"/>
+
+            <!-- the cage: draws on as it is named -->
+            <g fill="none" stroke="#8FA3B4" stroke-width="4" stroke-linecap="round">
+              <path class="dr" data-in="10.2" data-dur="2.4" d="M300 330 H660 V560 H300 Z"/>
+              <path class="dr" data-in="10.6" data-dur="2.2" d="M300 330 L370 270 H730 L660 330 M730 270 V500 L660 560"/>
+              <path class="dr" data-in="11.2" data-dur="2.0" stroke-width="3" stroke="#6E7D8A"
+                d="M340 330V560 M380 330V560 M420 330V560 M460 330V560 M500 330V560 M540 330V560 M580 330V560 M620 330V560 M300 400H660 M300 480H660"/>
+              <path class="dr" data-in="11.8" data-dur="1.6" stroke-width="3" stroke="#5D6B78"
+                d="M677 315V545 M695 300V530 M712 285V515 M660 400L730 340 M660 480L730 420 M340 330L410 270 M380 330L450 270 M420 330L490 270 M460 330L530 270 M600 330L670 270 M640 330L710 270 M335 300H695"/>
             </g>
-            <!-- watchman -->
-            <g class="r" data-in="7.8">
-              <circle cx="918" cy="374" r="25" fill="#7FB2D8"/>
-              <path d="M918 394 v62 M918 456 l-20 44 M918 456 l20 44 M918 410 l-40 12 M918 410 l40 12" stroke="#7FB2D8" stroke-width="15" stroke-linecap="round" fill="none"/>
+
+            <!-- access opening on top of the cage -->
+            <g class="r" data-in="15.2">
+              <path d="M484 318 H584 L626 282 H526 Z" fill="#07090B" stroke="#F2B417" stroke-width="4" stroke-dasharray="10 7"/>
             </g>
-            <!-- drop zone + person + no entry -->
-            <g class="r" data-in="15.0">
-              <ellipse cx="588" cy="498" rx="178" ry="30" fill="rgba(224,65,62,.16)" stroke="#E0413E" stroke-width="3" stroke-dasharray="14 11"/>
+            <!-- 60 cm callout leader -->
+            <path class="dr" data-in="16.8" data-dur="0.6" d="M186 326 L300 326 L488 314" stroke="#FFD24D" stroke-width="2" fill="none"/>
+
+            <!-- supervisor watching -->
+            <g class="r" data-in="23.2">
+              <circle cx="960" cy="398" r="23" fill="#7FB2D8"/>
+              <path d="M960 420 v66 M960 486 l-20 70 M960 486 l20 70 M960 438 l-34 34 M960 438 l34 34" stroke="#7FB2D8" stroke-width="14" stroke-linecap="round" fill="none"/>
             </g>
-            <g class="r" data-in="14.2">
-              <circle cx="588" cy="378" r="25" fill="#5A626B"/>
-              <path d="M588 398 v64 M588 462 l-20 40 M588 462 l20 40 M588 414 l-38 14 M588 414 l38 14" stroke="#5A626B" stroke-width="15" stroke-linecap="round" fill="none"/>
-              <circle cx="588" cy="424" r="62" fill="none" stroke="#E0413E" stroke-width="9"/>
-              <line x1="544" y1="380" x2="632" y2="468" stroke="#E0413E" stroke-width="9"/>
+            <path class="dr" data-in="24.5" data-dur="0.9" d="M936 392 L640 304" stroke="#7FB2D8" stroke-width="3" stroke-dasharray="2 0" fill="none"/>
+
+            <!-- confined-space rescue winch (tripod) -->
+            <g class="r" data-in="27.4">
+              <path d="M555 112 L452 326 M555 112 L656 326 M555 112 L604 270" stroke="#C9D3DB" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <rect x="536" y="100" width="38" height="20" rx="4" fill="#E2E8ED"/>
+              <rect x="472" y="222" width="40" height="34" rx="6" fill="#F2B417"/>
+              <circle cx="492" cy="239" r="8" fill="#14100A"/>
+              <path d="M512 239 h18" stroke="#F2B417" stroke-width="5" stroke-linecap="round"/>
             </g>
-            <line x1="0" y1="502" x2="1140" y2="502" stroke="#2A313A" stroke-width="2"/>
+            <path class="dr" data-in="28.1" data-dur="1.0" d="M555 120 V300 L536 404" stroke="#FFD24D" stroke-width="3" fill="none"/>
+            <g class="r" data-in="29.7">
+              <circle cx="770" cy="150" r="24" fill="none" stroke="#3ED6A0" stroke-width="4"/>
+              <path d="M759 150 l8 9 l15 -18" fill="none" stroke="#3ED6A0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
           </svg>
-          <div class="chip is-red r" data-in="13.4" style="left:32%;top:3%" data-i18n="c1_load"></div>
-          <div class="chip r" data-in="6.3" style="left:4%;top:44%" data-i18n="c1_rigger"></div>
-          <div class="chip r" data-in="7.8" style="left:64%;top:44%" data-i18n="c1_watch"></div>
-          <div class="chip r" data-in="18.4" style="left:22%;top:84%" data-i18n="c1_barr"></div>
+          <div class="chip r" data-in="15.4" style="left:3%;top:39%" data-i18n="c1_open"></div>
+          <div class="chip boxed big r" data-in="16.8" style="left:3%;top:48%">≥ 60 cm</div>
+          <div class="chip boxed r" data-in="20.4" style="left:2%;top:83%" data-i18n="c1_knee"></div>
+          <div class="chip blue r" data-in="24.6" style="left:72%;top:90%" data-i18n="c1_sup"></div>
+          <div class="chip r" data-in="27.6" style="left:58%;top:10%" data-i18n="c1_winch"></div>
+          <div class="chip is-teal r" data-in="29.7" style="left:69.5%;top:20%" data-i18n="c1_avail"></div>
         </section>
 
-        <!-- scene 2 : housekeeping -->
+        <!-- ===== scene 2 : concrete pour on Wednesday (31.4 – 38.7) ===== -->
         <section class="scene" id="s2">
-          <div class="scene-title r" data-in="21.6" style="left:50%;top:5%;transform:translateX(-50%)" data-i18n="c2_title"></div>
-          <svg viewBox="0 0 1184 640" aria-hidden="true">
-            <g class="r" data-in="22.4">
-              <path d="M58 392 L358 392 L318 562 L98 562 Z" fill="rgba(127,178,216,.12)" stroke="#7FB2D8" stroke-width="4"/>
-              <path d="M830 392 L1130 392 L1090 562 L870 562 Z" fill="rgba(242,180,23,.10)" stroke="#F2B417" stroke-width="4"/>
+          <div class="scene-title r" data-in="31.5" style="left:2%;top:0" data-i18n="c2_title"></div>
+          <svg class="art" viewBox="0 0 1184 640" aria-hidden="true">
+            <defs><clipPath id="drumClip"><ellipse cx="170" cy="440" rx="148" ry="60"/></clipPath></defs>
+            <line x1="0" y1="562" x2="1140" y2="562" stroke="#2A313A" stroke-width="2"/>
+            <g id="truck" class="r" data-in="34.0">
+              <rect x="0" y="498" width="440" height="22" rx="3" fill="#5D6B78"/>
+              <path d="M340 500 V420 Q340 400 360 400 H410 L442 452 V500 Z" fill="#F2B417"/>
+              <rect x="364" y="412" width="40" height="30" rx="3" fill="#12161B"/>
+              <ellipse cx="170" cy="440" rx="150" ry="62" fill="#A8B7C4"/>
+              <g clip-path="url(#drumClip)"><g id="drumStripes" stroke="#7E8E9C" stroke-width="14">
+                <path d="M-40 520 L60 360 M40 520 L140 360 M120 520 L220 360 M200 520 L300 360 M280 520 L380 360 M360 520 L460 360"/>
+              </g></g>
+              <path d="M24 470 L-26 524" stroke="#C3CDD6" stroke-width="10" stroke-linecap="round"/>
+              <circle cx="80" cy="534" r="26" fill="#2A313A" stroke="#8FA3B4" stroke-width="4"/>
+              <circle cx="152" cy="534" r="26" fill="#2A313A" stroke="#8FA3B4" stroke-width="4"/>
+              <circle cx="392" cy="534" r="26" fill="#2A313A" stroke="#8FA3B4" stroke-width="4"/>
             </g>
-            <g class="r" data-in="24.5">
-              <rect x="196" y="352" width="150" height="15" rx="2" fill="#A8B7C4" transform="rotate(-24 271 359)"/>
-            </g>
-            <g class="r" data-in="25.5">
-              <rect x="948" y="336" width="150" height="17" rx="2" fill="#C18A3E" transform="rotate(-19 1023 344)"/>
-            </g>
-            <g class="r" data-in="26.6">
-              <rect x="520" y="464" width="96" height="14" rx="2" fill="#F2B417"/>
-            </g>
-            <line x1="0" y1="570" x2="1140" y2="570" stroke="#2A313A" stroke-width="2"/>
           </svg>
-          <div class="chip r" data-in="27.4" style="left:6%;top:90%;--d:0" data-i18n="c2_metal"></div>
-          <div class="chip r" data-in="28.6" style="left:62%;top:90%" data-i18n="c2_wood"></div>
+          <div class="week r" data-in="35.2" id="week">
+            <div class="day"><span class="dn" data-i18n="d1"></span><span class="dd">05</span></div>
+            <div class="day"><span class="dn" data-i18n="d2"></span><span class="dd">06</span></div>
+            <div class="day" id="wed"><span class="dn" data-i18n="d3"></span><span class="dd">07</span><span class="ring" id="wedRing"></span></div>
+            <div class="day"><span class="dn" data-i18n="d4"></span><span class="dd">08</span></div>
+            <div class="day"><span class="dn" data-i18n="d5"></span><span class="dd">09</span></div>
+            <div class="day"><span class="dn" data-i18n="d6"></span><span class="dd">10</span></div>
+            <div class="day"><span class="dn" data-i18n="d7"></span><span class="dd">11</span></div>
+          </div>
+          <div class="chip boxed big r" data-in="36.2" style="left:64%;top:52%" data-i18n="c2_day"></div>
         </section>
 
-        <!-- scene 3 : concrete pouring -->
+        <!-- ===== scene 3 : traffic plan, access side, flagman (38.7 – 56.9) ===== -->
         <section class="scene" id="s3">
-          <div class="scene-title r" data-in="31.6" style="left:2%;top:4%" data-i18n="c3_title"></div>
-          <svg viewBox="0 0 1184 640" aria-hidden="true">
-            <g class="r" data-in="32.6">
-              <rect x="72" y="336" width="14" height="230" fill="#8FA3B4"/>
-              <rect x="586" y="336" width="14" height="230" fill="#8FA3B4"/>
-              <g stroke="#5D6B78" stroke-width="3">
-                <line x1="150" y1="348" x2="150" y2="556"/>
-                <line x1="230" y1="348" x2="230" y2="556"/>
-                <line x1="310" y1="348" x2="310" y2="556"/>
-                <line x1="390" y1="348" x2="390" y2="556"/>
-                <line x1="470" y1="348" x2="470" y2="556"/>
-                <line x1="540" y1="348" x2="540" y2="556"/>
-                <line x1="86" y1="352" x2="586" y2="352"/>
-                <line x1="86" y1="452" x2="586" y2="452"/>
+          <div class="scene-title r" data-in="38.8" style="left:2%;top:-2%" data-i18n="c3_title"></div>
+          <svg class="art" viewBox="0 0 1184 640" aria-hidden="true">
+            <defs>
+              <pattern id="hatchRed" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="16" height="16" fill="rgba(224,65,62,.10)"/><line x1="0" y1="0" x2="0" y2="16" stroke="rgba(224,65,62,.45)" stroke-width="5"/>
+              </pattern>
+              <marker id="arY" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#F2B417"/></marker>
+              <marker id="arT" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#3ED6A0"/></marker>
+            </defs>
+            <!-- site plan base -->
+            <g class="r" data-in="38.9">
+              <path d="M1140 155 V575 H40 V60 H1140 V78" fill="rgba(255,255,255,.012)" stroke="#3A434D" stroke-width="3" stroke-dasharray="12 8"/>
+              <rect x="40" y="82" width="1100" height="70" fill="#14181D"/>
+              <path d="M40 117 H1140" stroke="#2C333B" stroke-width="2" stroke-dasharray="18 14"/>
+              <text class="lbl" x="262" y="176" data-i18n="lRoad"></text>
+              <text class="lbl" x="1156" y="122" data-i18n="lGate"></text>
+              <rect x="430" y="232" width="390" height="236" rx="3" fill="#1C2229" stroke="#5D6B78" stroke-width="3"/>
+              <text class="lbl" x="625" y="356" text-anchor="middle" data-i18n="lPour"></text>
+              <!-- pump / chute at the left edge of the pour -->
+              <rect x="170" y="300" width="130" height="64" rx="5" fill="#5D6B78"/>
+              <rect x="268" y="306" width="30" height="26" rx="3" fill="#F2B417"/>
+              <path d="M240 304 L330 240 L440 300" stroke="#A8B7C4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <text class="lbl" x="235" y="392" text-anchor="middle" data-i18n="lPump"></text>
+            </g>
+            <!-- traffic route -->
+            <path class="dr" data-in="39.0" data-dur="1.3" d="M1180 104 H232 V292" stroke="rgba(242,180,23,.30)" stroke-width="12" fill="none" stroke-linejoin="round"/>
+            <path id="route" class="r" data-in="40.2" d="M1180 104 H232 V292" stroke="#F2B417" stroke-width="5" stroke-dasharray="22 16" fill="none" stroke-linejoin="round" marker-end="url(#arY)"/>
+
+            <!-- people -->
+            <g class="r" data-in="42.9" fill="#E9ECEF">
+              <circle cx="590" cy="598" r="9"/><rect x="583" y="609" width="14" height="26" rx="6"/>
+              <circle cx="622" cy="596" r="9"/><rect x="615" y="607" width="14" height="28" rx="6"/>
+              <circle cx="654" cy="598" r="9"/><rect x="647" y="609" width="14" height="26" rx="6"/>
+            </g>
+            <!-- chute area: no access -->
+            <rect class="r" data-in="46.2" x="110" y="200" width="320" height="320" rx="4" fill="url(#hatchRed)" stroke="#E0413E" stroke-width="3"/>
+            <path class="dr" data-in="45.2" data-dur="1.2" d="M580 598 C430 590 300 570 300 470 L300 400 L420 352" stroke="#E0413E" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <g class="r" data-in="46.6">
+              <circle cx="300" cy="460" r="30" fill="#2A1514" stroke="#E0413E" stroke-width="5"/>
+              <path d="M286 446 l28 28 M314 446 l-28 28" stroke="#E0413E" stroke-width="5" stroke-linecap="round"/>
+            </g>
+            <!-- access from the other side -->
+            <path class="dr" data-in="50.4" data-dur="1.6" d="M664 598 C800 590 900 570 900 480 L900 400 L832 360" stroke="#3ED6A0" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path class="r" data-in="51.9" d="M846 368 L834 361" stroke="#3ED6A0" stroke-width="5" fill="none" marker-end="url(#arT)"/>
+            <g class="r" data-in="52.2">
+              <circle cx="900" cy="470" r="27" fill="#12302A" stroke="#3ED6A0" stroke-width="4"/>
+              <path d="M888 470 l8 9 l15 -18" fill="none" stroke="#3ED6A0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <!-- flagman at the gate -->
+            <g class="r" data-in="54.7">
+              <circle cx="1050" cy="196" r="17" fill="#FF8A1F"/>
+              <path d="M1050 213 v42 M1050 255 l-13 40 M1050 255 l13 40 M1050 226 l-24 22" stroke="#FF8A1F" stroke-width="11" stroke-linecap="round" fill="none"/>
+              <g id="paddle">
+                <path d="M1050 226 L1084 196" stroke="#FF8A1F" stroke-width="11" stroke-linecap="round"/>
+                <line x1="1084" y1="196" x2="1100" y2="160" stroke="#C9D3DB" stroke-width="4"/>
+                <circle cx="1104" cy="148" r="20" fill="#E0413E" stroke="#fff" stroke-width="3"/>
+                <text x="1104" y="153" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">STOP</text>
               </g>
             </g>
-            <g class="r" data-in="34.2">
-              <rect x="86" y="444" width="500" height="122" fill="#B9C3CC" opacity=".85"/>
-            </g>
-            <g class="r" data-in="33.6">
-              <rect x="540" y="272" width="212" height="34" rx="3" fill="#7E8E9C" transform="rotate(-27 646 289)"/>
-              <rect x="688" y="196" width="60" height="34" rx="3" fill="#95A4B1" transform="rotate(-27 718 213)"/>
-              <path d="M556 300 l-16 22 M566 314 l-18 20 M576 328 l-18 20" stroke="#C3CDD6" stroke-width="6" stroke-linecap="round"/>
-              <circle cx="520" cy="356" r="4" fill="#C3CDD6"/>
-              <circle cx="556" cy="372" r="4" fill="#C3CDD6"/>
-              <circle cx="588" cy="352" r="4" fill="#C3CDD6"/>
-            </g>
-            <!-- goggles panel -->
-            <g class="r" data-in="36.7">
-              <rect x="696" y="300" width="436" height="238" rx="4" fill="#12161B" stroke="#F2B417" stroke-width="3"/>
-              <rect x="792" y="352" width="244" height="80" rx="40" fill="rgba(242,180,23,.12)" stroke="#F2B417" stroke-width="7"/>
-              <rect x="898" y="398" width="32" height="26" rx="4" fill="#2A313A"/>
-              <g stroke="#F2B417" stroke-width="6" stroke-linecap="round">
-                <line x1="742" y1="336" x2="776" y2="360"/>
-                <line x1="1086" y1="336" x2="1052" y2="360"/>
-                <line x1="730" y1="392" x2="772" y2="392"/>
-                <line x1="1098" y1="392" x2="1056" y2="392"/>
-              </g>
-              <circle cx="914" cy="484" r="23" fill="none" stroke="#3ED6A0" stroke-width="4"/>
-              <path d="M903 484 l8 9 l15 -18" fill="none" stroke="#3ED6A0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-            <line x1="0" y1="574" x2="1140" y2="574" stroke="#2A313A" stroke-width="2"/>
           </svg>
-          <div class="chip r" data-in="33.6" style="left:3%;top:18%" data-i18n="c3_team"></div>
-          <div class="chip boxed r" data-in="37.2" style="left:56%;top:23%" data-i18n="c3_eye"></div>
-          <div class="chip teal r" data-in="40.0" style="left:57%;top:90%" data-i18n="c3_splash"></div>
+          <div class="chip r" data-in="40.4" style="left:40%;top:24.5%" data-i18n="c3_follow"></div>
+          <div class="chip is-red r" data-in="48.4" style="left:5%;top:84%" data-i18n="c3_chute"></div>
+          <div class="chip is-teal r" data-in="52.3" style="left:77.5%;top:63%" data-i18n="c3_access"></div>
+          <div class="chip boxed big r" data-in="55.4" style="left:71%;top:47%" data-i18n="c3_flag"></div>
         </section>
 
-        <!-- scene 4 : electrical cables -->
+        <!-- ===== scene 4 : outro (56.9 – end) ===== -->
         <section class="scene" id="s4">
-          <div class="scene-title r" data-in="44.9" style="left:2%;top:4%" data-i18n="c4_title"></div>
-          <svg viewBox="0 0 1184 640" aria-hidden="true">
-            <g class="r" data-in="45.4">
-              <rect x="104" y="244" width="22" height="330" rx="2" fill="#8FA3B4"/>
-              <rect x="92" y="236" width="46" height="12" rx="2" fill="#B9C3CC"/>
-              <rect x="1040" y="244" width="22" height="330" rx="2" fill="#8FA3B4"/>
-              <rect x="1028" y="236" width="46" height="12" rx="2" fill="#B9C3CC"/>
-            </g>
-            <g class="r" data-in="45.9">
-              <path d="M115 256 Q583 428 1051 268" fill="none" stroke="#F2B417" stroke-width="10" stroke-linecap="round"/>
-            </g>
-            <g class="r" data-in="49.6">
-              <path d="M300 574 Q430 552 560 574" fill="none" stroke="#E0413E" stroke-width="8" stroke-linecap="round" opacity=".75"/>
-              <circle cx="430" cy="566" r="34" fill="none" stroke="#E0413E" stroke-width="7"/>
-              <line x1="406" y1="542" x2="454" y2="590" stroke="#E0413E" stroke-width="7"/>
-            </g>
-            <line x1="0" y1="578" x2="1140" y2="578" stroke="#2A313A" stroke-width="2"/>
-          </svg>
-          <div class="chip teal r" data-in="46.4" style="left:38%;top:31%" data-i18n="c4_hang"></div>
-          <div class="chip is-red r" data-in="49.6" style="left:53%;top:86%" data-i18n="c4_ground"></div>
-        </section>
-
-        <!-- scene 5 : outro -->
-        <section class="scene" id="s5">
           <div class="outro">
-            <div class="orow r" data-in="52.3">
+            <div class="orow r" data-in="57.2">
               <svg viewBox="0 0 38 38"><path d="M6 20 l8 9 l18 -22" fill="none" stroke="#3ED6A0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span data-i18n="p1t"></span>
             </div>
-            <div class="orow r" data-in="52.9">
+            <div class="orow r" data-in="57.6">
               <svg viewBox="0 0 38 38"><path d="M6 20 l8 9 l18 -22" fill="none" stroke="#3ED6A0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span data-i18n="p2t"></span>
             </div>
-            <div class="orow r" data-in="53.5">
+            <div class="orow r" data-in="58.0">
               <svg viewBox="0 0 38 38"><path d="M6 20 l8 9 l18 -22" fill="none" stroke="#3ED6A0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span data-i18n="p3t"></span>
             </div>
-            <div class="orow r" data-in="54.1">
-              <svg viewBox="0 0 38 38"><path d="M6 20 l8 9 l18 -22" fill="none" stroke="#3ED6A0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span data-i18n="p4t"></span>
-            </div>
-            <div class="oclose r" data-in="54.7" data-i18n="outroClose"></div>
+            <div class="oclose r" data-in="60.0" data-i18n="outroClose"></div>
+            <div class="othanks r" data-in="61.5" data-i18n="outroThanks"></div>
           </div>
         </section>
 
@@ -586,7 +564,7 @@
       <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
     </button>
     <input class="seek" id="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek">
-    <span class="tcode" id="tcode">00:00 / 00:58</span>
+    <span class="tcode" id="tcode">00:00 / 01:04</span>
     <button class="ctl" id="btnMute" type="button" aria-label="Mute">
       <svg id="icSound" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
       <svg id="icMuted" viewBox="0 0 24 24" hidden><path d="M3 9v6h4l5 5V4L7 9H3zm18.5-1.1L20.1 6.5 17.6 9l-2.5-2.5-1.4 1.4L16.2 10.4l-2.5 2.5 1.4 1.4 2.5-2.5 2.5 2.5 1.4-1.4-2.5-2.5 2.5-2.5z"/></svg>
@@ -608,7 +586,6 @@
     <li><b>01 &middot; <span data-i18n="p1t"></span></b><em data-i18n="p1s"></em></li>
     <li><b>02 &middot; <span data-i18n="p2t"></span></b><em data-i18n="p2s"></em></li>
     <li><b>03 &middot; <span data-i18n="p3t"></span></b><em data-i18n="p3s"></em></li>
-    <li><b>04 &middot; <span data-i18n="p4t"></span></b><em data-i18n="p4s"></em></li>
   </ol>
 
   <h2 data-i18n="hTranscript"></h2>
@@ -627,188 +604,255 @@
   "use strict";
 
   /* ------------------------------------------------------------------
-     Timings below were measured from the real audio of the speaker clip
-     (RMS envelope + pause detection), not from the draft transcript.
-     The draft drifted by up to ~2.3s (e.g. "electrical cables" was
-     written at 47.0s, actually starts at 44.66s).
+     SPEAKER VIDEO — leave empty to keep the window free.
+     To wire your clip later, put the file next to this page and set e.g.
+       var SPEAKER_SRC = 'speaker_W41.mp4';
+     (or drop / pick a video on the window while viewing the page).
+     When a video is present it becomes the master clock for every animation.
   ------------------------------------------------------------------ */
-  var BASE_DUR = 58.768;
+  var SPEAKER_SRC = 'speaker_W41.mp4';   // My_Video_03102026_MP4.mp4 cropped to the window for web
+
+  /* Timings measured from the audio of My_Video_03102026_MP4.mp4
+     (speech-energy segmentation + word alignment), not from the draft
+     transcript, which ends at 0:59 while speech runs to ~1:03. */
+  var BASE_DUR = 64.67;
 
   var SCENES = [
-    { id: 's0', t0: 0.00,  t1: 5.26,  card: -1 },
-    { id: 's1', t0: 5.26,  t1: 21.32, card: 0 },
-    { id: 's2', t0: 21.32, t1: 31.36, card: 1 },
-    { id: 's3', t0: 31.36, t1: 44.66, card: 2 },
-    { id: 's4', t0: 44.66, t1: 52.10, card: 3 },
-    { id: 's5', t0: 52.10, t1: 999,   card: -1 }
+    { id: 's0', t0: 0.00,  t1: 9.55 },
+    { id: 's1', t0: 9.55,  t1: 31.30 },
+    { id: 's2', t0: 31.30, t1: 38.70 },
+    { id: 's3', t0: 38.70, t1: 56.90 },
+    { id: 's4', t0: 56.90, t1: 999 }
   ];
-
+  var CARDT = [
+    { c: 0, t0: 9.55,  t1: 31.30 },
+    { c: 1, t0: 31.30, t1: 54.60 },
+    { c: 2, t0: 54.60, t1: 56.90 }
+  ];
   var CAPS = [
-    { k: 'cap1', t0: 0.30,  t1: 3.18 },
-    { k: 'cap2', t0: 5.26,  t1: 20.28 },
-    { k: 'cap3', t0: 21.32, t1: 30.30 },
-    { k: 'cap4', t0: 31.36, t1: 43.70 },
-    { k: 'cap5', t0: 44.66, t1: 51.24 },
-    { k: 'cap6', t0: 52.10, t1: 56.82 }
+    { k: 'cap1', t0: 0.10,  t1: 5.50 },
+    { k: 'cap2', t0: 6.10,  t1: 7.90 },
+    { k: 'cap3', t0: 9.60,  t1: 18.75 },
+    { k: 'cap4', t0: 19.40, t1: 30.20 },
+    { k: 'cap5', t0: 31.40, t1: 41.45 },
+    { k: 'cap6', t0: 42.30, t1: 52.75 },
+    { k: 'cap7', t0: 54.75, t1: 56.35 },
+    { k: 'cap8', t0: 57.15, t1: 62.90 }
   ];
 
   /* ---------------- i18n ---------------- */
   var I18N = {
     en: {
-      brandSub: 'Site Weekly Briefing · 21 Sep',
+      brandSub: 'Site Weekly Briefing · 05 Oct',
       langLabel: 'Language',
       pageTitle: 'Weekly Safety Briefing',
-      pageTag: 'Four safety priorities for the week ahead, delivered by the site supervisor. Watch the briefing below, or jump to any item in the transcript.',
+      pageTag: 'Three safety priorities for the week ahead, delivered by the site supervisor. Watch the briefing below, or jump to any item in the transcript.',
       stTitle: 'Weekly safety briefing',
-      stWeek: 'Week of 21.09.2026',
-      stSub: 'Four priorities for the site this week',
+      stWeek: 'Week of 05.10.2026',
+      stSub: 'Three priorities for the site this week',
       clockLab: 'Briefing time',
       playLab: 'Play briefing',
+      spkL1: 'Speaker video',
+      spkL2: 'Drop an MP4 here, or click to choose',
 
-      p1t: 'Lifting operations',
-      p1s: 'Rigger, watchman, clear drop zone',
-      p2t: 'Housekeeping',
-      p2s: 'Segregate metal and wood at source',
-      p3t: 'Concrete pouring',
-      p3s: 'Correct eye protection, every pour',
-      p4t: 'Electrical cables',
-      p4s: 'Hung up, never on the ground',
+      p1t: 'Metal cage entry',
+      p1s: 'Opening of 60 cm or more, knee protection, supervisor, rescue winch',
+      p2t: 'Concrete pour · Wednesday',
+      p2s: 'Follow the traffic plan; access from the side away from the chute',
+      p3t: 'Flagman on duty',
+      p3s: 'A flagman available for the pour traffic',
 
-      introTitle: 'Priorities for the week ahead',
-      introSub: 'Four things we get right every day, on every crew, on every shift.',
+      hello: 'Good morning',
+      introTitle: 'Safety priorities for the week ahead',
+      introSub: 'Week of 05.10.2026 · three things to get right before the work starts.',
 
-      c1_load: 'Nobody under a suspended load',
-      c1_rigger: 'Rigger in place',
-      c1_watch: 'Watchman, where required',
-      c1_barr: 'Barricade the drop zone before the lift',
+      c1_title: 'Entering the metal cage',
+      c1_open: 'Access opening',
+      c1_knee: 'Knee protection',
+      c1_sup: 'Supervisor watching',
+      c1_winch: 'Confined-space rescue winch',
+      c1_avail: 'Available on site',
 
-      c2_title: 'Segregate as you go',
-      c2_metal: 'Metal with metal',
-      c2_wood: 'Wood with wood',
+      c2_title: 'Concrete pour',
+      c2_day: 'Wednesday 07.10',
+      d1: 'MON', d2: 'TUE', d3: 'WED', d4: 'THU', d5: 'FRI', d6: 'SAT', d7: 'SUN',
 
-      c3_title: 'Next concrete pour',
-      c3_team: 'Pour team briefed before the truck arrives',
-      c3_eye: 'Correct eye protection',
-      c3_splash: 'Splashes burn — goggles, not glasses',
+      c3_title: 'Traffic plan',
+      c3_follow: 'Follow the traffic plan',
+      c3_chute: 'Concrete chute area — no access',
+      c3_access: 'Access from the other side',
+      c3_flag: 'Flagman available',
+      lRoad: 'SITE ROAD', lGate: 'GATE', lPour: 'POUR AREA', lPump: 'PUMP / CHUTE',
 
-      c4_title: 'Electrical cables',
-      c4_hang: 'Hang cables, clear of traffic and water',
-      c4_ground: 'Never left on the ground',
+      outroClose: 'Have a nice and safe week.',
+      outroThanks: 'Thank you.',
 
-      outroClose: 'Have a good week — and a safe one.',
+      cap1: 'Good morning. These are the safety priorities for the week ahead.',
+      cap2: 'First of all:',
+      cap3: 'For the people about to get into the metal cage: they need an access opening of at least 60 centimetres.',
+      cap4: 'They need knee protection, and of course a supervisor watching them, and the confined-space rescue winch will be available.',
+      cap5: 'Of course, we have a concrete pour on Wednesday, and the traffic plan must be followed.',
+      cap6: 'People must access not from the area where the concrete chute is, but from the other side.',
+      cap7: 'A flagman must be available.',
+      cap8: 'These are the priorities for this week. Have a nice and safe week. Thank you.',
 
-      cap1: "Let's see the priorities of the next week.",
-      cap2: 'Lifting activities. A rigger, and a watchman where that is required, has to be in place, to make sure nobody is under the load that is being lifted.',
-      cap3: 'The next priority is housekeeping. We will focus on segregating: metals with metals, wood with wood.',
-      cap4: 'And of course we have the next concrete pouring. Again, we are to have the right eye protection, according to the rules.',
-      cap5: 'Electrical cables: cables should be hung, and never left on the ground.',
-      cap6: 'These are the main priorities. Have a nice and safe week.',
-
-      mRun: 'Runtime 0:58',
-      mPri: '4 Priorities',
+      mRun: 'Runtime 1:04',
+      mPri: '3 Priorities',
       mTalk: 'Toolbox Talk',
-      mWeek: 'Week of 21.09.2026',
-      hPriorities: "This week’s priorities",
+      mWeek: 'Week of 05.10.2026',
+      hPriorities: 'This week’s priorities',
       hTranscript: 'Transcript',
       hintJump: 'Select any line to jump to that moment.',
       footL: 'SafeEye · Site Weekly Briefing',
-      footR: 'Week of 21.09.2026'
+      footR: 'Week of 05.10.2026'
     },
     el: {
-      brandSub: 'Εβδομαδιαία Ενημέρωση · 21 Σεπ',
+      brandSub: 'Εβδομαδιαία Ενημέρωση · 05 Οκτ',
       langLabel: 'Γλώσσα',
       pageTitle: 'Εβδομαδιαία Ενημέρωση Ασφάλειας',
-      pageTag: 'Τέσσερις προτεραιότητες ασφάλειας για την επόμενη εβδομάδα, από τον επιβλέποντα του έργου. Δείτε την ενημέρωση παρακάτω ή μεταβείτε σε οποιοδήποτε σημείο της απομαγνητοφώνησης.',
+      pageTag: 'Τρεις προτεραιότητες ασφάλειας για την επόμενη εβδομάδα, από τον επιβλέποντα του έργου. Δείτε την ενημέρωση παρακάτω ή μεταβείτε σε οποιοδήποτε σημείο της απομαγνητοφώνησης.',
       stTitle: 'Εβδομαδιαία ενημέρωση ασφάλειας',
-      stWeek: 'Εβδομάδα 21.09.2026',
-      stSub: 'Τέσσερις προτεραιότητες για το έργο αυτή την εβδομάδα',
+      stWeek: 'Εβδομάδα 05.10.2026',
+      stSub: 'Τρεις προτεραιότητες για το έργο αυτή την εβδομάδα',
       clockLab: 'Διάρκεια ενημέρωσης',
       playLab: 'Αναπαραγωγή',
+      spkL1: 'Βίντεο ομιλητή',
+      spkL2: 'Σύρετε ένα MP4 εδώ ή κάντε κλικ για επιλογή',
 
-      p1t: 'Ανυψωτικές εργασίες',
-      p1s: 'Ριγκαδόρος, επιτηρητής, ελεύθερη ζώνη',
-      p2t: 'Τάξη και καθαριότητα',
-      p2s: 'Διαχωρισμός μετάλλου και ξύλου στην πηγή',
-      p3t: 'Σκυροδέτηση',
-      p3s: 'Σωστή προστασία ματιών, σε κάθε ρίψη',
-      p4t: 'Ηλεκτρικά καλώδια',
-      p4s: 'Κρεμασμένα, ποτέ στο έδαφος',
+      p1t: 'Είσοδος στον μεταλλικό κλωβό',
+      p1s: 'Άνοιγμα τουλάχιστον 60 cm, επιγονατίδες, επιβλέπων, βαρούλκο διάσωσης',
+      p2t: 'Σκυροδέτηση · Τετάρτη',
+      p2s: 'Τήρηση σχεδίου κυκλοφορίας· πρόσβαση από την πλευρά μακριά από τον σωλήνα',
+      p3t: 'Σημαιοφόρος σε ετοιμότητα',
+      p3s: 'Διαθέσιμος σημαιοφόρος για την κυκλοφορία της σκυροδέτησης',
 
-      introTitle: 'Οι προτεραιότητες της εβδομάδας',
-      introSub: 'Τέσσερα πράγματα που τηρούμε κάθε μέρα, σε κάθε συνεργείο, σε κάθε βάρδια.',
+      hello: 'Καλημέρα',
+      introTitle: 'Οι προτεραιότητες ασφάλειας της εβδομάδας',
+      introSub: 'Εβδομάδα 05.10.2026 · τρία πράγματα που πρέπει να είναι σωστά πριν ξεκινήσει η δουλειά.',
 
-      c1_load: 'Κανείς κάτω από αιωρούμενο φορτίο',
-      c1_rigger: 'Ριγκαδόρος στη θέση του',
-      c1_watch: 'Επιτηρητής, όπου απαιτείται',
-      c1_barr: 'Περίφραξη της ζώνης πριν την ανύψωση',
+      c1_title: 'Είσοδος στον μεταλλικό κλωβό',
+      c1_open: 'Άνοιγμα πρόσβασης',
+      c1_knee: 'Προστασία γονάτων',
+      c1_sup: 'Επιβλέπων σε επιτήρηση',
+      c1_winch: 'Βαρούλκο διάσωσης περιορισμένου χώρου',
+      c1_avail: 'Διαθέσιμο στο έργο',
 
-      c2_title: 'Διαχωρίζουμε καθώς δουλεύουμε',
-      c2_metal: 'Μέταλλο με μέταλλο',
-      c2_wood: 'Ξύλο με ξύλο',
+      c2_title: 'Σκυροδέτηση',
+      c2_day: 'Τετάρτη 07.10',
+      d1: 'ΔΕΥ', d2: 'ΤΡΙ', d3: 'ΤΕΤ', d4: 'ΠΕΜ', d5: 'ΠΑΡ', d6: 'ΣΑΒ', d7: 'ΚΥΡ',
 
-      c3_title: 'Επόμενη σκυροδέτηση',
-      c3_team: 'Ενημέρωση συνεργείου πριν φτάσει η μπετονιέρα',
-      c3_eye: 'Σωστή προστασία ματιών',
-      c3_splash: 'Οι πιτσιλιές καίνε — γυαλιά-μάσκα, όχι απλά γυαλιά',
+      c3_title: 'Σχέδιο κυκλοφορίας',
+      c3_follow: 'Τηρούμε το σχέδιο κυκλοφορίας',
+      c3_chute: 'Περιοχή σωλήνα σκυροδέματος — όχι πρόσβαση',
+      c3_access: 'Πρόσβαση από την άλλη πλευρά',
+      c3_flag: 'Σημαιοφόρος διαθέσιμος',
+      lRoad: 'ΟΔΟΣ ΕΡΓΟΤΑΞΙΟΥ', lGate: 'ΠΥΛΗ', lPour: 'ΠΕΡΙΟΧΗ ΣΚΥΡΟΔΕΤΗΣΗΣ', lPump: 'ΑΝΤΛΙΑ / ΣΩΛΗΝΑΣ',
 
-      c4_title: 'Ηλεκτρικά καλώδια',
-      c4_hang: 'Κρεμάμε τα καλώδια, μακριά από διελεύσεις και νερά',
-      c4_ground: 'Ποτέ αφημένα στο έδαφος',
+      outroClose: 'Καλή και ασφαλή εβδομάδα.',
+      outroThanks: 'Ευχαριστώ.',
 
-      outroClose: 'Καλή εβδομάδα — και με ασφάλεια.',
+      cap1: 'Καλημέρα. Αυτές είναι οι προτεραιότητες ασφάλειας για την εβδομάδα που ακολουθεί.',
+      cap2: 'Πρώτα απ’ όλα:',
+      cap3: 'Όσοι πρόκειται να μπουν στον μεταλλικό κλωβό χρειάζονται άνοιγμα πρόσβασης τουλάχιστον 60 εκατοστών.',
+      cap4: 'Χρειάζονται προστασία γονάτων και, φυσικά, έναν επιβλέποντα να τους παρακολουθεί, και το βαρούλκο διάσωσης περιορισμένου χώρου θα είναι διαθέσιμο.',
+      cap5: 'Φυσικά, έχουμε σκυροδέτηση την Τετάρτη, και πρέπει να τηρηθεί το σχέδιο κυκλοφορίας.',
+      cap6: 'Η πρόσβαση του προσωπικού δεν γίνεται από την περιοχή του σωλήνα σκυροδέματος, αλλά από την άλλη πλευρά.',
+      cap7: 'Πρέπει να είναι διαθέσιμος σημαιοφόρος.',
+      cap8: 'Αυτές είναι οι προτεραιότητες της εβδομάδας. Καλή και ασφαλή εβδομάδα. Ευχαριστώ.',
 
-      cap1: 'Ας δούμε τις προτεραιότητες της επόμενης εβδομάδας.',
-      cap2: 'Ανυψωτικές εργασίες. Ριγκαδόρος, και επιτηρητής όπου απαιτείται, πρέπει να βρίσκονται στη θέση τους, ώστε κανείς να μην βρίσκεται κάτω από το φορτίο που ανυψώνεται.',
-      cap3: 'Η επόμενη προτεραιότητα είναι η τάξη και η καθαριότητα. Θα εστιάσουμε στον διαχωρισμό: μέταλλα με μέταλλα, ξύλα με ξύλα.',
-      cap4: 'Και φυσικά έχουμε την επόμενη σκυροδέτηση. Ξανά, πρέπει να έχουμε τη σωστή προστασία ματιών, σύμφωνα με τους κανόνες.',
-      cap5: 'Ηλεκτρικά καλώδια: τα καλώδια πρέπει να είναι κρεμασμένα, και ποτέ αφημένα στο έδαφος.',
-      cap6: 'Αυτές είναι οι βασικές προτεραιότητες. Καλή και ασφαλής εβδομάδα.',
-
-      mRun: 'Διάρκεια 0:58',
-      mPri: '4 Προτεραιότητες',
+      mRun: 'Διάρκεια 1:04',
+      mPri: '3 Προτεραιότητες',
       mTalk: 'Σύντομη ενημέρωση',
-      mWeek: 'Εβδομάδα 21.09.2026',
+      mWeek: 'Εβδομάδα 05.10.2026',
       hPriorities: 'Οι προτεραιότητες της εβδομάδας',
       hTranscript: 'Απομαγνητοφώνηση',
       hintJump: 'Επιλέξτε μια γραμμή για μετάβαση σε εκείνο το σημείο.',
       footL: 'SafeEye · Εβδομαδιαία Ενημέρωση',
-      footR: 'Εβδομάδα 21.09.2026'
+      footR: 'Εβδομάδα 05.10.2026'
     }
   };
 
-  var lang = 'en';
+  var params = new URLSearchParams(location.search);
+  var lang = params.get('lang') === 'el' ? 'el' : 'en';
+  if (params.get('render') === '1') document.documentElement.classList.add('render');
 
   /* ---------------- elements ---------------- */
-  var v        = document.getElementById('v');
-  var stage    = document.getElementById('stage');
-  var outer    = document.getElementById('stageOuter');
-  var capEl    = document.getElementById('caption');
-  var cards    = [].slice.call(document.querySelectorAll('.card'));
-  var scenes   = SCENES.map(function (s) { return document.getElementById(s.id); });
-  var reveals  = [].slice.call(document.querySelectorAll('.r[data-in]'));
-  var ctCur    = document.getElementById('ctCur');
-  var ctTot    = document.getElementById('ctTot');
-  var fill     = document.getElementById('clockFill');
-  var seek     = document.getElementById('seek');
-  var tcode    = document.getElementById('tcode');
-  var bigPlay  = document.getElementById('bigPlay');
-  var trList   = document.getElementById('tr');
+  var v       = document.getElementById('v');
+  var spk     = document.getElementById('spk');
+  var stage   = document.getElementById('stage');
+  var outer   = document.getElementById('stageOuter');
+  var capEl   = document.getElementById('caption');
+  var cards   = [].slice.call(document.querySelectorAll('.card'));
+  var bars    = cards.map(function (c) { return c.querySelector('.bar i'); });
+  var scenes  = SCENES.map(function (s) { return document.getElementById(s.id); });
+  var reveals = [].slice.call(document.querySelectorAll('.r[data-in]'));
+  var draws   = [].slice.call(document.querySelectorAll('.dr[data-in]'));
+  var ctCur   = document.getElementById('ctCur');
+  var ctTot   = document.getElementById('ctTot');
+  var fill    = document.getElementById('clockFill');
+  var seek    = document.getElementById('seek');
+  var tcode   = document.getElementById('tcode');
+  var bigPlay = document.getElementById('bigPlay');
+  var trList  = document.getElementById('tr');
+  var truck   = document.getElementById('truck');
+  var stripes = document.getElementById('drumStripes');
+  var wed     = document.getElementById('wed');
+  var wedRing = document.getElementById('wedRing');
+  var route   = document.getElementById('route');
+  var paddle  = document.getElementById('paddle');
+  var ag0     = document.getElementById('ag0');
+
+  draws.forEach(function (p) {
+    var L = p.getTotalLength();
+    p._len = L;
+    p.style.strokeDasharray = L + ' ' + L;
+  });
 
   /* ---------------- stage scaling ---------------- */
-  function rescale() {
-    stage.style.transform = 'scale(' + (outer.clientWidth / 1920) + ')';
-  }
+  function rescale() { stage.style.transform = 'scale(' + (outer.clientWidth / 1920) + ')'; }
   rescale();
   if (window.ResizeObserver) new ResizeObserver(rescale).observe(outer);
   window.addEventListener('resize', rescale);
 
   /* ---------------- helpers ---------------- */
+  function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+  function ease(x) { x = clamp(x); return 1 - Math.pow(1 - x, 3); }
   function fmt(t) {
     if (!isFinite(t) || t < 0) t = 0;
     var m = Math.floor(t / 60), s = Math.floor(t % 60);
     return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
   }
 
+  /* ---------------- clock: video if present, else internal timer ---------------- */
+  var useVideo = false, vt = 0, playing = false, last = 0;
+  function dur() { return (useVideo && v.duration && isFinite(v.duration)) ? v.duration : BASE_DUR; }
+  function now() { return useVideo ? v.currentTime : vt; }
+  function setTime(t) {
+    t = Math.max(0, Math.min(t, dur()));
+    if (useVideo) v.currentTime = t; else vt = t;
+    render(t);
+  }
+  function play() {
+    if (useVideo) { var p = v.play(); if (p && p.catch) p.catch(function () {}); return; }
+    if (vt >= dur() - 0.05) vt = 0;
+    playing = true; last = performance.now(); onPlay();
+  }
+  function pause() {
+    if (useVideo) { v.pause(); return; }
+    playing = false; onPause();
+  }
+  function isPlaying() { return useVideo ? !v.paused : playing; }
+  function toggle() { if (isPlaying()) pause(); else play(); }
+
+  function loadVideo(src) {
+    pause();
+    v.src = src;
+    useVideo = true;
+    spk.classList.add('has-video');
+    v.load();
+  }
+
+  /* ---------------- i18n ---------------- */
   function applyLang() {
     var d = I18N[lang];
     document.documentElement.lang = lang;
@@ -818,21 +862,20 @@
     });
     document.getElementById('btnEn').setAttribute('aria-pressed', lang === 'en');
     document.getElementById('btnEl').setAttribute('aria-pressed', lang === 'el');
+    document.title = d.pageTitle + ' — ' + d.stWeek;
     buildCaptions();
     buildTranscript();
-    render(v.currentTime || 0, true);
+    render(now());
   }
 
-  /* ---------------- captions ---------------- */
-  var capNodes = [];   // per caption: array of word spans
-
+  /* ---------------- captions (word-by-word highlight) ---------------- */
+  var capNodes = [];
   function buildCaptions() {
     capEl.textContent = '';
     capNodes = CAPS.map(function (c) {
       var holder = document.createElement('div');
       holder.style.display = 'none';
-      var words = I18N[lang][c.k].split(/\s+/);
-      var spans = words.map(function (w, i) {
+      var spans = I18N[lang][c.k].split(/\s+/).map(function (w, i) {
         var sp = document.createElement('span');
         sp.textContent = (i ? ' ' : '') + w;
         holder.appendChild(sp);
@@ -842,24 +885,18 @@
       return { holder: holder, spans: spans };
     });
   }
-
   function paintCaption(t) {
     var idx = -1;
     for (var i = 0; i < CAPS.length; i++) {
-      if (t >= CAPS[i].t0 - 0.25 && t <= CAPS[i].t1 + 0.9) { idx = i; break; }
+      var nextT0 = i + 1 < CAPS.length ? CAPS[i + 1].t0 - 0.25 : 1e9;
+      if (t >= CAPS[i].t0 - 0.25 && t < Math.min(CAPS[i].t1 + 1.2, nextT0)) { idx = i; break; }
     }
-    for (var j = 0; j < capNodes.length; j++) {
-      capNodes[j].holder.style.display = (j === idx) ? 'block' : 'none';
-    }
-    if (idx < 0) return;
+    for (var j = 0; j < capNodes.length; j++) capNodes[j].holder.style.display = (j === idx) ? 'block' : 'none';
+    if (idx < 0 || !capNodes[idx]) return;
     var c = CAPS[idx], node = capNodes[idx];
-    var p = (t - c.t0) / (c.t1 - c.t0);
-    if (p < 0) p = 0; if (p > 1) p = 1;
-    var cur = Math.floor(p * node.spans.length);
-    if (cur >= node.spans.length) cur = node.spans.length - 1;
-    for (var k = 0; k < node.spans.length; k++) {
-      node.spans[k].className = k < cur ? 'said' : (k === cur ? 'now' : '');
-    }
+    var p = clamp((t - c.t0) / (c.t1 - c.t0));
+    var cur = Math.min(node.spans.length - 1, Math.floor(p * node.spans.length));
+    for (var k = 0; k < node.spans.length; k++) node.spans[k].className = k < cur ? 'said' : (k === cur ? 'now' : '');
   }
 
   /* ---------------- transcript list ---------------- */
@@ -869,144 +906,138 @@
     cueBtns = CAPS.map(function (c) {
       var li = document.createElement('li');
       var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'cue';
-      var tm = document.createElement('time');
-      tm.textContent = fmt(c.t0);
-      var sp = document.createElement('span');
-      sp.textContent = I18N[lang][c.k];
+      b.type = 'button'; b.className = 'cue';
+      var tm = document.createElement('time'); tm.textContent = fmt(c.t0);
+      var sp = document.createElement('span'); sp.textContent = I18N[lang][c.k];
       b.appendChild(tm); b.appendChild(sp);
-      b.addEventListener('click', function () {
-        v.currentTime = c.t0;
-        var pr = v.play();
-        if (pr && pr.catch) pr.catch(function () {});
-      });
-      li.appendChild(b);
-      trList.appendChild(li);
+      b.addEventListener('click', function () { setTime(c.t0); play(); });
+      li.appendChild(b); trList.appendChild(li);
       return b;
     });
   }
 
-  /* ---------------- main render ---------------- */
-  var lastScene = -1;
-
-  function render(t, force) {
-    // scene + cards
-    var si = 0;
+  /* ---------------- main render: everything is a pure function of t ---------------- */
+  function render(t) {
+    // scenes: 0.4 s cross-fade
     for (var i = 0; i < SCENES.length; i++) {
-      if (t >= SCENES[i].t0) si = i;
+      var s = SCENES[i];
+      var o = (i === 0 ? 1 : ease((t - s.t0) / 0.4)) * (1 - ease((t - s.t1) / 0.35));
+      scenes[i].style.opacity = o;
+      scenes[i].style.visibility = o > 0.001 ? 'visible' : 'hidden';
     }
-    if (si !== lastScene || force) {
-      for (var j = 0; j < scenes.length; j++) {
-        scenes[j].classList.toggle('active', j === si);
-      }
-      lastScene = si;
-    }
-    var activeCard = SCENES[si].card;
+
+    // rail cards
     for (var c = 0; c < cards.length; c++) {
-      var passed = false;
-      for (var s = 0; s < SCENES.length; s++) {
-        if (SCENES[s].card === c && t >= SCENES[s].t1) passed = true;
-      }
-      cards[c].classList.toggle('is-active', c === activeCard);
-      cards[c].classList.toggle('is-done', passed && c !== activeCard);
+      var ct = CARDT[c];
+      var active = t >= ct.t0 && t < ct.t1;
+      cards[c].classList.toggle('is-active', active);
+      cards[c].classList.toggle('is-done', t >= ct.t1);
+      bars[c].style.width = (clamp((t - ct.t0) / (ct.t1 - ct.t0)) * 100) + '%';
     }
 
-    // reveals
+    // reveals (fade + rise for HTML, fade for SVG)
     for (var r = 0; r < reveals.length; r++) {
-      reveals[r].classList.toggle('on', t >= parseFloat(reveals[r].getAttribute('data-in')));
+      var el = reveals[r];
+      var e = ease((t - parseFloat(el.getAttribute('data-in'))) / 0.5);
+      el.style.opacity = e;
+      if (!(el instanceof SVGElement)) el.style.translate = '0 ' + ((1 - e) * 12).toFixed(2) + 'px';
+    }
+    // draw-on strokes
+    for (var d = 0; d < draws.length; d++) {
+      var p = draws[d];
+      var k = ease((t - parseFloat(p.getAttribute('data-in'))) / parseFloat(p.getAttribute('data-dur') || 1));
+      p.style.strokeDashoffset = (p._len * (1 - k)).toFixed(1);
+      p.style.opacity = k > 0 ? 1 : 0;
     }
 
-    // caption
+    // motion details
+    ag0.classList.toggle('hl', t >= 7.4);
+    var tx = -480 + 560 * ease((t - 34.0) / 1.6);
+    truck.setAttribute('transform', 'translate(' + tx.toFixed(1) + ',0)');
+    stripes.setAttribute('transform', 'translate(' + ((t * 70) % 80).toFixed(1) + ',0)');
+    wed.classList.toggle('hl', t >= 35.9);
+    var pr = t >= 35.9 ? ((t - 35.9) % 1.2) / 1.2 : 1;
+    wedRing.style.opacity = t >= 35.9 ? (1 - pr) : 0;
+    wedRing.style.transform = 'scale(' + (1 + pr * 0.18).toFixed(3) + ')';
+    route.style.strokeDashoffset = (-t * 60).toFixed(1);
+    paddle.setAttribute('transform', 'rotate(' + (Math.sin(t * 5) * 14).toFixed(2) + ' 1050 226)');
+
+    // caption + clock + controls
     paintCaption(t);
-
-    // clock + controls
-    var dur = (v.duration && isFinite(v.duration)) ? v.duration : BASE_DUR;
+    var D = dur();
     ctCur.textContent = fmt(t);
-    ctTot.textContent = fmt(dur);
-    fill.style.width = Math.min(100, (t / dur) * 100) + '%';
-    tcode.textContent = fmt(t) + ' / ' + fmt(dur);
-    if (document.activeElement !== seek) seek.value = String(Math.round((t / dur) * 1000));
+    ctTot.textContent = fmt(D);
+    fill.style.width = Math.min(100, (t / D) * 100) + '%';
+    tcode.textContent = fmt(t) + ' / ' + fmt(D);
+    if (document.activeElement !== seek) seek.value = String(Math.round((t / D) * 1000));
 
-    // transcript highlight
     var ci = -1;
     for (var q = 0; q < CAPS.length; q++) { if (t >= CAPS[q].t0 - 0.25) ci = q; }
     for (var w = 0; w < cueBtns.length; w++) {
-      if (w === ci) cueBtns[w].setAttribute('aria-current', 'true');
-      else cueBtns[w].removeAttribute('aria-current');
+      if (w === ci) cueBtns[w].setAttribute('aria-current', 'true'); else cueBtns[w].removeAttribute('aria-current');
     }
   }
+  window.__frame = function (t) { render(t); };   // used by the MP4 exporter
 
-  /* ---------------- playback wiring ---------------- */
+  /* ---------------- playback loop ---------------- */
   var raf = 0;
-  function loop() {
-    render(v.currentTime, false);
-    raf = requestAnimationFrame(loop);
-  }
-
-  v.addEventListener('play', function () {
-    bigPlay.hidden = true;
-    setIcon(true);
-    if (!raf) raf = requestAnimationFrame(loop);
-  });
-  v.addEventListener('pause', function () {
-    setIcon(false);
-    cancelAnimationFrame(raf); raf = 0;
-    render(v.currentTime, false);
-  });
-  v.addEventListener('ended', function () {
-    setIcon(false);
-    bigPlay.hidden = false;
-    cancelAnimationFrame(raf); raf = 0;
-  });
-  v.addEventListener('seeked', function () { render(v.currentTime, true); });
-  v.addEventListener('loadedmetadata', function () { render(v.currentTime, true); });
-
-  function toggle() {
-    if (v.paused) {
-      var p = v.play();
-      if (p && p.catch) p.catch(function () {});
-    } else {
-      v.pause();
+  function loop(ts) {
+    if (!useVideo && playing) {
+      vt += (ts - last) / 1000; last = ts;
+      if (vt >= dur()) { vt = dur(); playing = false; onEnded(); }
     }
+    render(now());
+    if (isPlaying()) raf = requestAnimationFrame(loop); else raf = 0;
   }
-
   var icPlay = document.getElementById('icPlay');
   var icPause = document.getElementById('icPause');
-  function setIcon(playing) {
-    icPlay.hidden = playing;
-    icPause.hidden = !playing;
-  }
+  function setIcon(on) { icPlay.hidden = on; icPause.hidden = !on; }
+  function onPlay() { bigPlay.hidden = true; setIcon(true); if (!raf) raf = requestAnimationFrame(function (ts) { last = ts; loop(ts); }); }
+  function onPause() { setIcon(false); render(now()); }
+  function onEnded() { setIcon(false); bigPlay.hidden = false; }
+
+  v.addEventListener('play', onPlay);
+  v.addEventListener('pause', onPause);
+  v.addEventListener('ended', onEnded);
+  v.addEventListener('seeked', function () { render(now()); });
+  v.addEventListener('loadedmetadata', function () { render(now()); });
 
   bigPlay.addEventListener('click', toggle);
   document.getElementById('btnPlay').addEventListener('click', toggle);
-  document.getElementById('btnRestart').addEventListener('click', function () {
-    v.currentTime = 0;
-    var p = v.play();
-    if (p && p.catch) p.catch(function () {});
-  });
-  seek.addEventListener('input', function () {
-    var dur = (v.duration && isFinite(v.duration)) ? v.duration : BASE_DUR;
-    v.currentTime = (seek.value / 1000) * dur;
-    render(v.currentTime, true);
-  });
+  document.getElementById('btnRestart').addEventListener('click', function () { setTime(0); play(); });
+  seek.addEventListener('input', function () { setTime((seek.value / 1000) * dur()); });
 
   var icSound = document.getElementById('icSound');
   var icMuted = document.getElementById('icMuted');
   document.getElementById('btnMute').addEventListener('click', function () {
-    v.muted = !v.muted;
-    icSound.hidden = v.muted;
-    icMuted.hidden = !v.muted;
+    v.muted = !v.muted; icSound.hidden = v.muted; icMuted.hidden = !v.muted;
   });
   document.getElementById('btnFs').addEventListener('click', function () {
     if (document.fullscreenElement) document.exitFullscreen();
     else if (outer.requestFullscreen) outer.requestFullscreen();
   });
   document.addEventListener('fullscreenchange', rescale);
-
   document.addEventListener('keydown', function (e) {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON') return;
     if (e.code === 'Space' || e.key === 'k') { e.preventDefault(); toggle(); }
+  });
+
+  /* ---------------- speaker window: pick or drop a clip ---------------- */
+  var fileIn = document.getElementById('spkFile');
+  document.getElementById('spkPh').addEventListener('click', function (e) { e.stopPropagation(); fileIn.click(); });
+  fileIn.addEventListener('change', function () {
+    if (fileIn.files && fileIn.files[0]) { loadVideo(URL.createObjectURL(fileIn.files[0])); setTime(0); }
+  });
+  ['dragenter', 'dragover'].forEach(function (n) {
+    outer.addEventListener(n, function (e) { e.preventDefault(); spk.classList.add('drag'); });
+  });
+  ['dragleave', 'drop'].forEach(function (n) {
+    outer.addEventListener(n, function () { spk.classList.remove('drag'); });
+  });
+  outer.addEventListener('drop', function (e) {
+    e.preventDefault();
+    var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (f && /^video\//.test(f.type)) { loadVideo(URL.createObjectURL(f)); setTime(0); }
   });
 
   /* ---------------- language buttons ---------------- */
@@ -1014,8 +1045,9 @@
   document.getElementById('btnEl').addEventListener('click', function () { lang = 'el'; applyLang(); });
 
   /* ---------------- go ---------------- */
-  applyLang();
-  render(0, true);
+  applyLang();                                // build captions before the video can trigger a render
+  if (SPEAKER_SRC) loadVideo(SPEAKER_SRC);
+  render(0);
 })();
 </script>
 </body>
